@@ -36,7 +36,7 @@ classifiers = [
 dev = ["build", "twine"]
 
 [tool.hatch.build]
-artifacts = ["/backend/gradio_htmlgallery/templates", "*.pyi", "backend/gradio_htmlgallery/templates", "backend/gradio_htmlgallery/templates"]
+artifacts = ["/backend/gradio_htmlgallery/templates", "*.pyi", "backend/gradio_htmlgallery/templates", "backend/gradio_htmlgallery/templates", "backend/gradio_htmlgallery/templates"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["/backend/gradio_htmlgallery"]

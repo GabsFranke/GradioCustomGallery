@@ -158,6 +158,19 @@
 		return imgElement ? imgElement.outerHTML : '';
   	}
 
+	let numThumbnails = _value ? _value.length : 0;
+
+	$: {
+		numThumbnails = _value ? _value.length : 0;
+	}
+
+	let justifyContentThumbnails = 'justify-center'; // default class
+
+	$: {
+		// Recalculate justifyContentClass whenever numThumbnails changes
+		justifyContentThumbnails = numThumbnails < 14 ? 'justify-center' : 'justify-space-between';
+	}
+
 	let client_height = 0;
 	let window_height = 0;
 </script>
@@ -182,7 +195,7 @@
 			<button
 				class="image-button"
 				on:click={(event) => handle_preview_click(event)}
-				style="height: calc(100% - {_value[selected_index]
+				style="height: 100% - {_value[selected_index]
 					? '80px'
 					: '60px'})"
 				aria-label="detailed view of selected content"
@@ -191,7 +204,7 @@
 			</button>
 			<div
 				bind:this={container_element}
-				class="thumbnails scroll-hide"
+				class="thumbnails scroll-hide {justifyContentThumbnails}"
 				data-testid="container_el"
 			>
 				{#each _value as divs, i}
@@ -275,12 +288,22 @@
 		display: flex;
 		position: absolute;
 		bottom: 0;
-		justify-content: center;
 		align-items: center;
+		padding-left: 10px;
+		padding-right: 10px;
 		gap: var(--spacing-lg);
+		min-width: 100%;
 		width: var(--size-full);
 		height: var(--size-14);
 		overflow-x: scroll;
+	}
+
+	.thumbnails.justify-center {
+		justify-content: center;
+	}
+
+	.thumbnails.justify-space-between {
+		justify-content: space-between;
 	}
 
 	.thumbnail-item {

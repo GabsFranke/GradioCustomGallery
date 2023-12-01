@@ -126,4 +126,9 @@ class HTMLGallery(Component):
             "<div><p>Hello world</p><p>No image</p></div>",
             "<div><img src='https://picsum.photos/600/800'><p>Hello world</p></div>",
             "<div><p>Hello world</p><p>No image</p></div>",
+            "<div><img src='https://picsum.photos/600/800'><p>Hello world</p></div>",
+            "<div><p>Hello world</p><p>No image</p></div>",
+            "<div><img src='https://picsum.photos/600/800'><p>Hello world</p></div>",
+            "<div><p>Hello world</p><p>No image</p></div>","<div><img src='https://picsum.photos/600/800'><p>Hello world</p></div>",
+            "<div><p>Hello world</p><p>No image</p></div>",
         ]
